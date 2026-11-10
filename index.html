@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Dino Game Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="game-container">
+    <div class="header">
+      <div class="title-badge">CHROME DINO RUNNER</div>
+      <div class="sound-controls">
+        <button id="sound-btn" class="icon-btn" title="Toggle Sound">🔊</button>
+      </div>
+    </div>
+
+    <!-- Canvas Game View -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="900" height="300"></canvas>
+      
+      <!-- Overlay for Start / Game Over -->
+      <div id="start-screen" class="overlay active">
+        <div class="pixel-art-logo">🦖</div>
+        <h1>T-REX RUNNER</h1>
+        <p class="blink">PRESS SPACEBAR OR TAP TO START</p>
+        <div class="instructions">
+          <span><kbd>SPACE</kbd> / <kbd>↑</kbd> Jump</span>
+          <span><kbd>↓</kbd> Duck</span>
+          <span><kbd>TAP</kbd> Controls for Mobile</span>
+        </div>
+      </div>
+
+      <div id="game-over-screen" class="overlay hidden">
+        <h2 class="game-over-text">G A M E &nbsp; O V E R</h2>
+        <div class="final-score-box">
+          <p>SCORE: <span id="final-score">00000</span></p>
+          <p>HIGH SCORE: <span id="final-high-score">00000</span></p>
+        </div>
+        <button id="restart-btn" class="pixel-button">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+          </svg>
+          RESTART
+        </button>
+        <p class="subtext">Or press <kbd>SPACE</kbd> to try again</p>
+      </div>
+    </div>
+
+    <!-- Touch / On-screen controls for mobile or clickers -->
+    <div class="mobile-controls">
+      <button id="touch-jump" class="touch-btn">JUMP ⬆</button>
+      <button id="touch-duck" class="touch-btn">DUCK ⬇</button>
+    </div>
+
+    <footer class="footer">
+      <span>Built with Canvas & Web Audio API (No external sound files required)</span>
+    </footer>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
+
